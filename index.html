@@ -17,6 +17,7 @@
         <!-- Navbar Start -->
         <div class="navbar-start">
             <div tabindex="0" role="button"
+            id="blog"
                 class="btn btn-ghost hidden lg:flex min-w-10 max-w-12 px-12 text-center bg-[#B4F461] hover:bg-[#8beb0d]">
                 Blog
             </div>
@@ -32,7 +33,7 @@
         <div class="navbar-end">
             <div class="flex items-center">
                 <img src="./assets/coin.png" class="w-4 h-4 lg:w-5 lg:h-5 mt-[2px]" alt="Coin">
-                <h3 class="text-base lg:text-xl text-[#111111aa] font-medium ml-1" id="main-balance">5203 BDT</h3>
+                <h3 class="text-base lg:text-xl text-[#111111aa] font-medium ml-1" ><span id="main-balance">5203</span> BDT</h3>
             </div>
         </div>
 
@@ -40,46 +41,40 @@
 
 
     <div class="flex justify-center my-16 gap-4">
-        <div class="btn bg-[#B4F461] w-44 hover:bg-[#8beb0d]">Donate</div>
-        <div class="btn bg-white border-solid border-2 border-gray-300 hover:bg-white w-44">History</div>
+        <div class="btn bg-[#B4F461] w-44 hover:bg-[#8beb0d]" id="donate-page" onclick="donateButton()">Donate</div>
+        <div class="btn bg-white border-solid border-2 border-gray-300 hover:bg-white w-44" id="history-page" onclick="historiButton()">History</div>
     </div>
 
-    <div id="donate" class="flex-col px-5 ">
-
-
+    <div id="donate-part" class="flex-col px-5 ">
         <div class="card lg:card-side bg-base-100 shadow-xl mb-12">
 
             <img src="./assets/feni.png" alt="Album" />
 
             <div class="card-body flex-col">
-                <div class="flex items-center gap-2 bg-slate-300 w-28 py-2 pl-2 rounded mb-4">
+                <div class="flex items-center gap-2 bg-slate-300 max-w-40 py-2 pl-2 rounded mb-4">
                     <img src="./assets/coin.png" class="w-6 h-6" alt="Coin">
-                    <h2 class="font-bold text-[#111111aa]">600 BDT</h2>
+                    <h2 class="font-bold text-[#111111aa]" ><span id="flood-balance">600</span> BDT</h2>
                 </div>
                 <h2 class="card-title">Donate for Flood at Noakhali, Bangladesh</h2>
                 <p>The recent floods in Noakhali have caused significant damage to homes and
                     infrastructure. Your donation will help provide essential supplies to those affected by this
                     disaster. Every contribution, big or small, makes a difference. Please join us in supporting the
                     relief efforts and making a positive impact on the lives of those in need.</p>
-                <input type="number" placeholder="Enter Donation Amount" class="input input-bordered w-full mb-4">
-                <button class="btn w-full border-none text-black bg-[#B4F461] hover:bg-[#9def31]">Donate
+                <input type="number" placeholder="Enter Donation Amount" id="flood-input" class="input input-bordered w-full mb-4">
+                <button class="btn w-full border-none text-black bg-[#B4F461] hover:bg-[#9def31]" id="flood-btn">Donate
                     Now</button>
             </div>
         </div>
-
-
-
-
         <!-- Card Two -->
 
         <div class="card lg:card-side bg-base-100 shadow-xl mb-12">
 
-            <img src="./assets/2.jpg" alt="Album" />
+            <img src="./assets/2.jpg" class="rounded-xl" alt="Album" />
 
             <div class="card-body flex-col">
-                <div class="flex items-center gap-2 bg-slate-300 w-28 py-2 pl-2 rounded mb-4">
+                <div class="flex items-center gap-2 bg-slate-300 max-w-40 py-2 pl-2 rounded mb-4">
                     <img src="./assets/coin.png" class="w-6 h-6" alt="Coin">
-                    <h2 class="font-bold text-[#111111aa]">600 BDT</h2>
+                    <h2 class="font-bold text-[#111111aa]" id="river-balance">600 BDT</h2>
                 </div>
                 <h2 class="card-title">Support the Victims of Padma River Erosion</h2>
                 <p>Thousands of families have lost their homes and livelihoods due to the devastating erosion caused by
@@ -88,26 +83,21 @@
                     supplies, to those affected. Your generosity can offer them hope and the opportunity to start over.
                     Every donation, big or small, makes a significant impact. Stand with us in supporting the victims of
                     this disaster and help them recover from this heartbreaking loss.</p>
-                <input type="number" placeholder="Enter Donation Amount" class="input input-bordered w-full mb-4">
-                <button class="btn w-full border-none text-black bg-[#B4F461] hover:bg-[#9def31]">Donate
+                <input type="number" placeholder="Enter Donation Amount" id="river-input" class="input input-bordered w-full mb-4">
+                <button class="btn w-full border-none text-black bg-[#B4F461] hover:bg-[#9def31]" id="river-btn">Donate
                     Now</button>
             </div>
         </div>
-
-
-
-
-
         <!-- Card three -->
 
         <div class="card lg:card-side bg-base-100 shadow-xl">
 
-            <img src="./assets/feni.png" alt="Album" />
+            <img src="./assets/quota-protest.png" class="rounded-xl" alt="Album" />
 
             <div class="card-body flex-col">
                 <div class="flex items-center gap-2 bg-slate-300 w-28 py-2 pl-2 rounded mb-4">
                     <img src="./assets/coin.png" class="w-6 h-6" alt="Coin">
-                    <h2 class="font-bold text-[#111111aa]">600 BDT</h2>
+                    <h2 class="font-bold text-[#111111aa]" id="quota-balance">600 BDT</h2>
                 </div>
                 <h2 class="card-title">Honor the Martyrs of the 2024 Student Movement</h2>
                 <p>In 2024, brave students stood up for justice, equality, and the rights of the future generation.
@@ -117,14 +107,64 @@
                     their sacrifice, let us honor their legacy by standing up for the values they fought for. Your
                     contribution will help support their families and continue the fight for the justice they sought.
                 </p>
-                <input type="number" placeholder="Enter Donation Amount" class="input input-bordered w-full mb-4">
-                <button class="btn w-full border-none text-black bg-[#B4F461] hover:bg-[#9def31]">Donate
+                <input type="number" id="quota-input" placeholder="Enter Donation Amount" class="input input-bordered w-full mb-4">
+                <button class="btn w-full border-none text-black bg-[#B4F461] hover:bg-[#9def31]" id="quota-btn">Donate
                     Now</button>
             </div>
         </div>
 
     </div>
 
+
+
+
+
+<!-- History Part  -->
+<div id="history-part">
+    <div class="flex flex-col px-5">
+        <div class="card lg:card-side bg-base-100 shadow-xl mb-12">
+            <img src="./assets/flood.jpg" class="rounded-xl" alt="Album" />
+            <div class="card-body flex-col">
+                <h2 class="card-title">Donation History for Flood at Noakhali, Bangladesh</h2>
+                <table class="table-auto w-full">
+                    <thead>
+                        <tr>
+                            <th>Donation Amount</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>600 BDT</td>
+                            <td>2022-03-15</td>
+                        </tr>
+                        <tr>
+                            <td>4
+</div>
+
+
+
+
+
+
+
+        <!-- Custom Alert Box -->
+<div id="custom-alert" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center hidden z-50">
+    <div class="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full flex-col justify-center text-center">
+        <div class="mb-4">
+            <h1 class=" mb-2"><strong class="text-3xl font-bold">Congrates</strong></h1>
+            <img src="assets/coin.png" class="mx-auto w-12 h-12">
+            <div class="text-gray-700" id="alert-p">
+                  Your donation has been successfully processed. Thank you for your generosity.
+            </div>
+        </div>
+      
+            <button id="alert-ok-btn" class="mt-4 bg-[#cdcecb75] text-black px-8 py-2 rounded btn">
+            close confirmation
+        </div>
+    </div>
+</div>
+<script src="./js/index.js"></script>
 </body>
 
 </html>
