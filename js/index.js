@@ -1,11 +1,16 @@
 let serialNumber = 1;  // Define the serial number
 
+document.getElementById("blog").addEventListener('click', function(e){
+    window.location.href='./pages/blog.html';
+})
+
+
 // Flood functional part
 document.getElementById("flood-btn").addEventListener('click', function (e) {
     e.preventDefault();
     const flood_donation_balance = parseFloat(document.getElementById("flood-input").value);
     const flood_balance = parseFloat(document.getElementById("flood-balance").innerText);
-    addBalance(flood_donation_balance, flood_balance, "flood-balance");
+    addBalance(flood_donation_balance, flood_balance, "flood-balance", "Flood at Noakhali, Bangladesh");
 });
 
 // River functional part
@@ -13,7 +18,7 @@ document.getElementById("river-btn").addEventListener('click', function (e) {
     e.preventDefault();
     const donation_balance = parseFloat(document.getElementById("river-input").value);
     const balance = parseFloat(document.getElementById("river-balance").innerText);
-    addBalance(donation_balance, balance, "river-balance");
+    addBalance(donation_balance, balance, "river-balance","Support the Victims of Padma River Erosion");
 });
 
 // Quota functional part
@@ -21,10 +26,10 @@ document.getElementById("quota-btn").addEventListener('click', function (e) {
     e.preventDefault();
     const donation_balance = parseFloat(document.getElementById("quota-input").value);
     const balance = parseFloat(document.getElementById("quota-balance").innerText);
-    addBalance(donation_balance, balance, "quota-balance");
+    addBalance(donation_balance, balance, "quota-balance","Honor the Martyrs of the 2024 Student Movement");
 });
 
-function addBalance(amount, balance, id) {
+function addBalance(amount, balance, id, text_title) {
     const mainbalances = parseFloat(document.getElementById("main-balance").innerText);
     if (typeof amount !== 'number' || typeof balance !== 'number' || amount <= 0) {
         alert('Please Input Valid Amount');
@@ -37,7 +42,7 @@ function addBalance(amount, balance, id) {
         document.getElementById('main-balance').innerText = `${totalbalance} BDT`;
         
         showCustomAlert();
-        TransactionToHistory(amount);  // Add transaction to history
+        TransactionToHistory(amount, text_title);  // Add transaction to history
 
     } else {
         alert("Insufficient balance");
@@ -45,7 +50,7 @@ function addBalance(amount, balance, id) {
 }
 
 // Function to record the transaction in the history section
-function TransactionToHistory(amount) {
+function TransactionToHistory(amount, text_title) {
     const date = new Date();
     const currentDate = date.toLocaleDateString();
     const time = date.toLocaleTimeString();
@@ -57,7 +62,7 @@ function TransactionToHistory(amount) {
     newCard.innerHTML = `
         <div class="serial-number font-bold">Transaction #${serialNumber}</div>
         <div class="transaction-details">
-            <p>Amount: ${amount.toFixed(2)} BDT</p>
+            <p>Amount: ${amount.toFixed(2)} BDT Donated for ${text_title}</p>
             <p>Date: ${currentDate}</p>
             <p>Time: ${time}</p>
         </div>

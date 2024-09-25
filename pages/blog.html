@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Navbar -->
+    <nav class="navbar bg-base-200 px-11 shadow-lg py-8">
+        <div class="flex-1">
+            <a class="text-xl font-bold" href="#">Donate Bangladesh</a>
+        </div>
+        <div class="flex-none">
+            <button class="btn btn-primary" id="donate-now">Donate Now</button>
+        </div>
+    </nav>
+
+    <!-- Blog Header -->
+    <header class="text-center py-12 bg-cover bg-center" style="background-image: url('../assets/3.jpg');">
+        <h1 class="text-4xl font-bold text-white">Join the Movement: Help Those in Need</h1>
+        <p class="text-lg text-gray-50 mt-4">Stay updated with the latest news, stories, and donation campaigns.</p>
+    </header>
+
+    <!-- Blog Content -->
+    <main class="container mx-auto my-10 px-4 lg:px-0">
+
+        <!-- Blog Post 1 -->
+        <div class="card bg-base-100 shadow-lg mb-10">
+            <div class="card-body lg:flex">
+                <img src="../assets/noakhali.png" alt="Flood Relief" class="rounded-lg lg:w-1/3">
+                <div class="lg:ml-6">
+                    <h2 class="card-title text-2xl font-bold mt-4 lg:mt-0">Flood Relief in Bangladesh</h2>
+                    <p class="my-4 text-gray-700">The recent floods in Noakhali have caused significant damage to homes and infrastructure. Join our flood relief campaign and help those affected by providing essential supplies. Every donation, big or small, makes a huge difference.</p>
+                    <a href="#" class="btn btn-outline btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blog Post 2 -->
+        <div class="card bg-base-100 shadow-lg mb-10">
+            <div class="card-body lg:flex">
+                <img src="../assets/2.jpg" alt="River Erosion" class="rounded-lg lg:w-1/3">
+                <div class="lg:ml-6">
+                    <h2 class="card-title text-2xl font-bold mt-4 lg:mt-0">Helping Victims of River Erosion</h2>
+                    <p class="my-4 text-gray-700">The Padma River erosion has left thousands of families homeless. Your donation can provide food, shelter, and other essential supplies to those who need them most.</p>
+                    <a href="#" class="btn btn-outline btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blog Post 3 -->
+        <div class="card bg-base-100 shadow-lg mb-10">
+            <div class="card-body lg:flex">
+                <img src="../assets/quota-protest.png" alt="Student Movement" class="rounded-lg lg:w-1/3">
+                <div class="lg:ml-6">
+                    <h2 class="card-title text-2xl font-bold mt-4 lg:mt-0">Support the Families of 2024 Martyrs</h2>
+                    <p class="my-4 text-gray-700">The 2024 student movement in Bangladesh saw young heroes fighting for justice. Help us honor their legacy by supporting their families through your generous donations.</p>
+                    <a href="#" class="btn btn-outline btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="flex justify-center mt-10">
+            <div class="btn-group">
+                <button class="btn btn-outline">1</button>
+                <button class="btn btn-outline">2</button>
+                <button class="btn btn-outline">3</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-base-200 py-6 text-center">
+        <p class="text-gray-500">&copy; 2024 Donate Bangladesh. All Rights Reserved.</p>
+    </footer>
+<script src="../js/blog.js"></script>
+</body>
+</html>
