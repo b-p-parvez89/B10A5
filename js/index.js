@@ -1,98 +1,92 @@
+let serialNumber = 1;  // Define the serial number
 
-console.log("Hello Bangladehs");
-
-const flood_balance = document.getElementById("flood-balance").innerText;
-const flood_donation_balance = document.getElementById("flood-input").value;
-flood_btn = document.getElementById("flood-btn");
-
-const river_balance = document.getElementById("river-balance").innerText;
-const river_donation_balance = document.getElementById("river-input");
-const river_btn = document.getElementById("river-btn");
-
-
-const quota_balance = document.getElementById("quota-balance").innerText;
-const quota_donation_balance = document.getElementById("quota-input").value;
-const quota_btn = document.getElementById("quota-btn");
-// Flood fuctional part
+// Flood functional part
 document.getElementById("flood-btn").addEventListener('click', function (e) {
     e.preventDefault();
     const flood_donation_balance = parseFloat(document.getElementById("flood-input").value);
     const flood_balance = parseFloat(document.getElementById("flood-balance").innerText);
     addBalance(flood_donation_balance, flood_balance, "flood-balance");
-
 });
 
-// River Fuctional part
+// River functional part
 document.getElementById("river-btn").addEventListener('click', function (e) {
-    console.log("river button cliked");
     e.preventDefault();
     const donation_balance = parseFloat(document.getElementById("river-input").value);
     const balance = parseFloat(document.getElementById("river-balance").innerText);
     addBalance(donation_balance, balance, "river-balance");
-
 });
 
-// Quota Fuctional Part
+// Quota functional part
 document.getElementById("quota-btn").addEventListener('click', function (e) {
     e.preventDefault();
     const donation_balance = parseFloat(document.getElementById("quota-input").value);
     const balance = parseFloat(document.getElementById("quota-balance").innerText);
     addBalance(donation_balance, balance, "quota-balance");
-
 });
 
 function addBalance(amount, balance, id) {
     const mainbalances = parseFloat(document.getElementById("main-balance").innerText);
     if (typeof amount !== 'number' || typeof balance !== 'number' || amount <= 0) {
-        alert('Please Input Valid  Amaount');
+        alert('Please Input Valid Amount');
         return;
     }
-    if (mainbalances > amount) {
-        const mainbalance = balance + amount;
-        // document.getElementById("flood-balance").innerText = mainbalance;
-        document.getElementById(id).innerText = mainbalance;
-
-        totalbalance = mainbalances - amount;
-        console.log(totalbalance);
-
-        document.getElementById('main-balance').innerText = `${totalbalance}`;
+    if (mainbalances >= amount) {  // Changed condition to allow equal balance
+        const newBalance = balance + amount;
+        document.getElementById(id).innerText = newBalance + ' BDT';
+        const totalbalance = mainbalances - amount;
+        document.getElementById('main-balance').innerText = `${totalbalance} BDT`;
+        
         showCustomAlert();
+        TransactionToHistory(amount);  // Add transaction to history
 
     } else {
-        alert("Insufficient balance")
+        alert("Insufficient balance");
     }
-
 }
 
+// Function to record the transaction in the history section
+function TransactionToHistory(amount) {
+    const date = new Date();
+    const currentDate = date.toLocaleDateString();
+    const time = date.toLocaleTimeString();
 
-// Cliked Button
+    const historyPart = document.getElementById('history-part');
+    const newCard = document.createElement('div');
+    newCard.classList.add('p-4', 'mb-4', 'border', 'border-gray-300', 'rounded-lg', 'shadow-md');
 
-
-function donateButton() {
-    document.getElementById("donate-page").classList.add("text-black", "bg-[#8beb0d]")
-    document.getElementById("donate-part").classList.remove("hidden")
-    document.getElementById("history-part").classList.add("hidden","bg-white")
-    document.getElementById("history-page").classList.remove("bg-[#B4F461]", "hover:bg-[#8beb0d]")
-}
-
-function historiButton() {
-    document.getElementById("history-page").classList.add("text-black", "bg-[#8beb0d]", "hover:bg-[#8beb0d]")
-    document.getElementById("history-part").classList.remove("hidden")
-    document.getElementById("donate-part").classList.add("hidden")
-    document.getElementById("donate-page").classList.remove("bg-[#B4F461]", "hover:bg-[#8beb0d]")
-
+    newCard.innerHTML = `
+        <div class="serial-number font-bold">Transaction #${serialNumber}</div>
+        <div class="transaction-details">
+            <p>Amount: ${amount.toFixed(2)} BDT</p>
+            <p>Date: ${currentDate}</p>
+            <p>Time: ${time}</p>
+        </div>
+    `;
+    
+    historyPart.appendChild(newCard);
+    serialNumber++;
 }
 
 // Function to show the custom alert
 function showCustomAlert() {
     document.getElementById("custom-alert").classList.remove('hidden');
 }
+
 document.getElementById("alert-ok-btn").addEventListener('click', function () {
     document.getElementById("custom-alert").classList.add('hidden');
 });
 
+// Navigation functions
+function donateButton() {
+    document.getElementById("donate-part").classList.remove("hidden");
+    document.getElementById("history-part").classList.add("hidden");
+    document.getElementById("donate-page").style.backgroundColor = "#B4F461";
+    document.getElementById("history-page").style.backgroundColor = "white";
+}
 
-
-
-
-
+function historiButton() {
+    document.getElementById("history-part").classList.remove("hidden");
+    document.getElementById("donate-part").classList.add("hidden");
+    document.getElementById("history-page").style.backgroundColor = "#B4F461";
+    document.getElementById("donate-page").style.backgroundColor = "white";
+}

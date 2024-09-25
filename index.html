@@ -7,7 +7,8 @@
     <title>Donate Bangladesh</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
-   
+   <script src="tailwind.js"></script>
+   <script src="daisyui.js"></script>
 </head>
 
 <body>
@@ -44,7 +45,7 @@
         <div class="btn bg-[#B4F461] w-44 hover:bg-[#8beb0d]" id="donate-page" onclick="donateButton()">Donate</div>
         <div class="btn bg-white border-solid border-2 border-gray-300 hover:bg-white w-44" id="history-page" onclick="historiButton()">History</div>
     </div>
-
+    
     <div id="donate-part" class="flex-col px-5 ">
         <div class="card lg:card-side bg-base-100 shadow-xl mb-12">
 
@@ -120,26 +121,10 @@
 
 
 <!-- History Part  -->
-<div id="history-part">
-    <div class="flex flex-col px-5">
-        <div class="card lg:card-side bg-base-100 shadow-xl mb-12">
-            <img src="./assets/flood.jpg" class="rounded-xl" alt="Album" />
-            <div class="card-body flex-col">
-                <h2 class="card-title">Donation History for Flood at Noakhali, Bangladesh</h2>
-                <table class="table-auto w-full">
-                    <thead>
-                        <tr>
-                            <th>Donation Amount</th>
-                            <th>Date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>600 BDT</td>
-                            <td>2022-03-15</td>
-                        </tr>
-                        <tr>
-                            <td>4
+<!-- History Part -->
+<div id="history-part" class="hidden">
+    <h2 class="text-xl font-bold mb-4">Transaction History</h2>
+    <div id="history-content" class="flex flex-col px-5"></div>
 </div>
 
 
@@ -149,7 +134,7 @@
 
 
         <!-- Custom Alert Box -->
-<div id="custom-alert" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center hidden z-50">
+<div id="custom-alert" class="fixed inset-0 bg-gray-900 bg-opacity-50  items-center justify-center hidden z-50">
     <div class="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full flex-col justify-center text-center">
         <div class="mb-4">
             <h1 class=" mb-2"><strong class="text-3xl font-bold">Congrates</strong></h1>
